@@ -38,8 +38,14 @@
 \usepackage{float}
 %% usar com \begin{figure}[H]
 
+%% Quebrar citações
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{breakurl}
+%\usepackage[breaklinks]{hyperref}
+
 % Change these to change out the sort outputs.
-\titulo{Aplicação de Assistentes Virtuais para Gerenciamento de Configuração}
+\titulo{Aplicação de Assistentes virtuais para Gerenciamento de Configuração}
 \autor{Francismar Nascimento da Silva}
 \orientador[Orientadora]{Profa. Dra. Fulana de Tal}
 \coorientador{Prof. Dr. Beltrano da Silva}
@@ -75,30 +81,30 @@ Os aplicativos de mensagens tornaram o SMS um canal unidirecional utilizado, em 
 No Brasil, a Chatbos Brasil anunciou o resultado do primeiro Bots Brasil Awards, uma votação que escolheu os melhores Chatbots de 2017, os vencedores em suas categorias são: serviços (Magazine Luiza - Lú e Visa), e-Commerce (Pagseguro - Paquinho e ShopFácil), Mídia (Uol e Beta feminista), entretenimento (Rock in Rio - Roque) e Assistente Pessoal (Bia Talk e Clipping Bot).
 \end{comment}
 
-Mas, o que é um Chatbot? Chatbot é a junção das palavras: chat (conversa, bate-papo) e bot (robô). O Chatbot é uma entidade artificial projetada para simular uma conversa inteligente com parceiros humanos através da sua
-linguagem natural \cite{Reshmi2016ImplementationBases}.
+Mas, o que é um Chatbot? Chatbot é a junção das palavras: chat (conversa, bate-papo) e bot (robô). Segundo \cite{Reshmi2016ImplementationBases}, Chatbot é uma entidade artificial projetada para simular uma conversa inteligente com parceiros humanos através da sua
+linguagem natural.
 
-Os Chatbots, também chamados de Assistentes Virtuais (AV), podem ser utilizados para realizar desde tarefas simples, como agendamentos e reservas, ou mais complexas quando utilizados com a Inteligência Artificial.
+Os Chatbots, também chamados de Assistentes virtuais (AV), podem ser utilizados para realizar desde tarefas simples, como agendamentos e reservas, ou mais complexas quando utilizados com a Inteligência Artificial.
 
 Segundo \cite{Gartner2018GartnerYears}, embora o setor de atendimento ao cliente seja o que mais utiliza os Chatbots, outras áreas da empresa também podem ser beneficiadas. Quando os Chatbots são usados como interfaces de aplicativos, a maneira como trabalhamos mudará de ``o usuário tendo que aprender a interface'' para  ``o chatbot aprendendo o que o usuário quer''. 
 
 \begin{comment}
 Ainda sobre o futuro dos aplicativos de acordo com  \cite{Gartner2018GartnerGartner}, até 2021, mais de 50\% das empresas gastarão mais por ano na criação de Chatbots do que no desenvolvimento tradicional de aplicativos móveis, transformando a maneira como os aplicativos são construídos. 
 \end{comment}
-De acordo com \cite{GatewaySun2016Gartner:Robots},  em 2020, as pessoas não irão usar aplicativos em seus aparelhos. Na realidade, os apps estarão esquecidos. As pessoas vão contar com os assistentes virtuais pra tudo. Segundo a empresa a era pós-app está vindo.
+De acordo com \cite{GatewaySun2016Gartner:Robots},  em 2020, as pessoas não irão usar aplicativos em seus aparelhos. Na realidade, os apps estarão esquecidos. As pessoas vão contar com os Assistentes virtuais pra tudo. Segundo a empresa a era pós-app está vindo.
 
-As aplicações e benefícios de Assistentes Virtuais são inúmeros, desde suporte a clientes, coleta de dados, cuidados com a saúde, treinamentos, vendas, bancos e até ajudar as equipes de operação de TI de uma empresa, como veremos a seguir. 
+As aplicações e benefícios de Assistentes virtuais são inúmeros, desde suporte a clientes, coleta de dados, cuidados com a saúde, treinamentos, vendas, bancos e até ajudar as equipes de operação de TI de uma empresa, como veremos a seguir. 
 
-Todas as empresas dependem da provisão de serviços de TI. Portanto, para manter a operação do negócio em funcionamento, é necessário gerenciar informações e relacionamentos que incluem uma infinidade de registros de itens de configuração (IC), IC é qualquer componente na infraestrutura de TI que precise ser configurado, geralmente são tarefas complexas e requerem o uso de ferramentas especialidadas. Estes desafios e a pressão do mercado fez com que as empresas buscassem soluções disruptivas para otimização máxima dos recursos e aumento da qualidade de entrega, tudo isso, fez surgir nas empresa uma nova cultura, conhecida como DevOps.
+Todas as empresas dependem da provisão de serviços de TI. Portanto, para manter a operação do negócio em funcionamento, é necessário gerenciar informações e relacionamentos que incluem uma infinidade de registros de itens de configuração (IC), IC é qualquer componente na infraestrutura de TI que precise ser configurado, geralmente são tarefas complexas e requerem o uso de ferramentas especialidadas. Estes desafios e a pressão do mercado fez com que as empresas buscassem soluções disruptivas para otimização máxima dos recursos e aumento da qualidade de entrega, tudo isso, fez surgir nas empresa uma nova cultura, conhecida como Devops.
 \begin{comment}
 \begin{figure}[!htb]
 \centering
-\includegraphics [width=300px]{devops.jpg}
+\includegraphics [width=300px]{Devops.jpg}
 \caption{2013 IBM Corporation}
 \end{figure}
 \end{comment}
 
-O Gerenciamento de Configuração (GC) surge como um recurso dentro  da abordagem DevOps, ou seja, as equipes de desenvolvimento (Dev) e operação (Ops) agora trabalham de forma colaborativa, utilizando práticas e recursos, dentre eles o GC, para entregar produtos e serviços. 
+O Gerenciamento de Configuração (GC) surge como um recurso dentro  da abordagem Devops, ou seja, as equipes de desenvolvimento (Dev) e operação (Ops) agora trabalham de forma colaborativa, utilizando práticas e recursos, dentre eles o GC, para entregar produtos e serviços. 
 
 \begin{comment}Desta forma conseguem controlar e acompanhar mudanças, registrar a evolução dos projetos e manter a integração contínua.
 \end{comment}
@@ -108,23 +114,29 @@ O Gerenciamento de Configuração (GC) surge como um recurso dentro  da abordage
 
 Considerando a importância do GC no processo de funcionamento de toda empresa no contexto da Infraestrura de TI e os excelentes befícios que trazem quando utilizados com interfaces de aplicativos, propomos a implementação de uma aplicação de AVs como interface para o GC. Esta aplicação permitirá desde o monitoramento até a implementação de recursos nos Laboratórios de Informática e servidores da Universidade Federal de São Paulo-UNIFESP, campus São José dos Campos. 
 
-Em virtude das informações até aqui apresentadas, este trabalho estabelece como problema de pesquisa responder: quais os tipos e aplicações de Assistentes Virtuais existentes,  destes quais são utilizados na solução de problemas que envolvem o Gerenciamento de Configuração e como é possível utilizar Assistentes Virtuais com o Gerenciamento de Configuração para o provisionamento de serviços de hardware, software e rede na Universidade Federal de São Paulo-UNIFESP, campus São José dos Campos?
+Em virtude das informações até aqui apresentadas, este trabalho estabelece como problema de pesquisa responder: quais os tipos e aplicações de Assistentes virtuais existentes,  destes quais são utilizados na solução de problemas que envolvem o Gerenciamento de Configuração e como é possível utilizar Assistentes virtuais com o Gerenciamento de Configuração para o provisionamento de serviços de hardware, software e rede na Universidade Federal de São Paulo-UNIFESP, campus São José dos Campos.
 
 \section{Objetivos}
 
 \subsection{Geral}
-Este trabalho visa identificar e analisar os tipos e aplicações existentes de Assistentes Virtuais que são utilizados para resolver problemas aderentes ao gerenciamento de configuração e implementar uma aplicação de Assistentes Virtuais para o Gerenciamento de configuração na Universidade Federal de São Paulo-UNIFESP, campus São José dos Campos.
+Este trabalho visa identificar e analisar os tipos e aplicações existentes de Assistentes virtuais que são utilizados para resolver problemas aderentes ao Gerenciamento de Configuração e implementar uma aplicação de Assistentes virtuais para o Gerenciamento de Configuração na Universidade Federal de São Paulo-UNIFESP, campus São José dos Campos.
 
 \subsection{Específicos}
-Para alcançar o seu objetivo central, este projeto está organizado em 4 capítulos sendo que no \textbf{Capítulo 1}, iremos conceituar Assistentes Virtuais, o seu surgimento e evolução, seus principais tipos, aplicações, casos de uso de sucesso e os benefícios que trazem para os usuários e empresas.
-No \textbf{Capítulo 2}, iremos conceituar Gerenciamento de Configuração, seu surgimento e evolução, sua importância, os principais softwares que existem atualmente no mercado e como o GC pode ajudar as empresas a sobreviver num ambiente de alta competitividade e entrega contínua.
-No \textbf{capítulo 3}, iremos relacionar e mostrar como os Assistentes Virtuais podem ser utilizados junto com o Gerenciamento de Configuração e agregar valor aos processos acadêmicos de tal forma que as equipes de desenvolvimento e operação possam trabalhar juntas e sincronizadas para provisionar serviços de hardware, software e rede mantendo a consistência e a integridade dos recursos. No \textbf{Capítulo 4}, vamos implementar uma solução de Assistentes virtuais para o Gerenciamento de configuração em uma aplicação que visar utilizar os benefícios dos assistentes virtuais junto com o Gerenciamento de configuração na Universidade Federal de São Paulo, Campus de São José dos Campos. E, por fim, no \textbf{Capítulo 5}, são apresentadas as considerações finais.
+Para alcançar o seu objetivo central, este projeto está organizado em 4 capítulos sendo que no \textbf{Capítulo 1}, iremos conceituar Assistentes virtuais, o seu surgimento e evolução, seus principais tipos, aplicações, casos de uso de sucesso e os benefícios que trazem para os usuários e empresas.
+No \textbf{Capítulo 2}, iremos conceituar Gerenciamento de configuração, seu surgimento e evolução, sua importância, os principais softwares que existem atualmente no mercado e como o GC pode ajudar as empresas a sobreviver num ambiente de alta competitividade e entrega contínua.
+No \textbf{capítulo 3}, iremos relacionar e mostrar como os Assistentes virtuais podem ser utilizados junto com o Gerenciamento de configuração e agregar valor aos processos acadêmicos de tal forma que as equipes de desenvolvimento e operação possam trabalhar juntas e sincronizadas para provisionar serviços de hardware, software e rede mantendo a consistência e a integridade dos recursos. No \textbf{Capítulo 4}, vamos implementar uma solução de Assistentes virtuais para o Gerenciamento de configuração em uma aplicação que visar utilizar os benefícios dos Assistentes virtuais junto com o Gerenciamento de configuração na Universidade Federal de São Paulo, Campus de São José dos Campos. E, por fim, no \textbf{Capítulo 5}, são apresentadas as considerações finais.
 
 \section{Justificativa}
 
-\begin{comment}Discutir a utilização de Assistentes Virtuais para o Gerenciamento de configuração, justifica-se pela necessidade de fornecer aos usuários interessados acesso não apenas a informações e recursos, que antes eram apenas de domínio das equipes de operação, mas também pela agilidade na entrega dos serviços.
+\begin{comment}Discutir a utilização de Assistentes virtuais para o Gerenciamento de Configuração, justifica-se pela necessidade de fornecer aos usuários interessados acesso não apenas a informações e recursos, que antes eram apenas de domínio das equipes de operação, mas também pela agilidade na entrega dos serviços.
 \end{comment}
-Os benefícios da utilização de Assistente Virtuais como interface de aplicativos são inúmeros dos quais podemos citar: disponibilidade 24 horas,  respostas instantâneas, respostas consistentes, respostas gravadas, transações instantâneas, paciência sem fim e programabilidade. 
+Como já dissemos na introdução deste trabalho, os serviços de TI, mais especificamente os entregues pelas equipes de operação, ocupam um papel fundamental no dia a dia das empresas, sejam elas do mundo dos negócios ou do mundo acadêmico.
+
+Os usuários necessitam de informações e recursos  que muitas vezes o modelo atual de atendimento não é capaz de entregar, assim não são disponibilizados no tempo e com a qualidade desejados.
+
+Este trabalho propõe uma mudança não só na forma de entrega dos serviços ao usuários, mas também na forma como os serviços serão implementados pelas equipes de operação de TI. 
+\begin{comment}
+A utilização de Assistente virtuais como interface de aplicativos para o GC traz para a empresa, inúmeros benefícios dos quais podemos citar: disponibilidade 24 horas,  respostas instantâneas, respostas consistentes, respostas gravadas, transações instantâneas, paciência sem fim e programabilidade. 
 
 \begin{figure}[H]
 \centering
@@ -132,16 +144,17 @@ Os benefícios da utilização de Assistente Virtuais como interface de aplicati
 \caption{The 2018 State of Chatbots Report: How Chatbots Are Reshaping Online Experiences}
 \end{figure}
 
-Como já dissemos anteriormente, o  GC é parte fundamental da cultura DevOps. 
+Como já dissemos anteriormente, o  GC é parte fundamental da cultura Devops. 
 
-A Figura 2 apresenta um estudo da empresa RightScale em 2016 acerca da adoção do  DevOps no mundo. O estudo já apontava números impressionantes – 84\% das grandes corporações e 72\% das pequenas e médias empresas já estavam adotando 
-alguma prática DevOps, mostrando que o DevOps nos próximos anos estará presente em todas as empresas .
+A Figura 2 apresenta um estudo da empresa RightScale em 2016 acerca da adoção do  Devops no mundo. O estudo já apontava números impressionantes – 84\% das grandes corporações e 72\% das pequenas e médias empresas já estavam adotando 
+alguma prática Devops, mostrando que o Devops nos próximos anos estará presente em todas as empresas .
 
 \begin{figure}[H]
 \centering
-\includegraphics [width=350px,height=200px]{devops-adoption}
+\includegraphics [width=350px,height=200px]{Devops-adoption}
 \caption{RightScale 2016 nas Grandes e Pequenas e média empresas}
 \end{figure}
+\end{comment}
 
 Os serviços de virtualização, nuvem, containers, automação de servidores e  redes definidos por software são simplificados com a utilização do GC, facilitando o trabalho de operações de TI. Com o GC deve levar menos tempo e esforço  provisionar, configurar, atualizar e manter serviços. Os problemas devem ser detectados rapidamente e resolvidos. Os sistemas devem ser, consistentemente, configurados e atualizados. As equipes de TI devem gastar menos tempo em trabalho de rotina, ter tempo para fazer mudanças rapidamente e promover melhorias para ajudar suas organizações a atenderem às necessidades em constante mudança no mundo moderno.
 
@@ -149,7 +162,7 @@ Os serviços de virtualização, nuvem, containers, automação de servidores e 
 
 
 
-A utilização de Assistentes Virtuais para o GC, faz com o que era antes restrito as equipes de operação, agora possa ser disponibilizado a todos os interessados.
+
 
 \begin{comment}
 
@@ -166,16 +179,13 @@ Segundo ainda o mesmo relatório, para as empresas, os benefícios também são 
 5- \textbf{Obter uma compreensão mais profunda dos clientes}:  seus clientes raramente conversam com sua empresa. Os chatbots fornecem à sua empresa registros detalhados e acionáveis dos maiores pontos problemáticos de seus clientes, ajudando sua empresa a melhorar seus produtos e serviços.
 \end{comment}
 
+Atualmente, se tomarmos um caso concreto, na UNIFESP campus São José dos Campos, o processo completo de clonagem de uma máquina de laboratório demora 4 horas, consumindo tempo e degradando o desempenho da rede de computadores. Com o uso do GC os recursos seriam implementados conforme a demanda, em dias e horários adequados, e até mesmo monitorados conforme a necessidade. 
 
-Atualmente, na UNIFESP campus São José dos Campos, o processo completo de clonagem de uma máquina de laboratório demora 4 horas, consumindo tempo e degradando o desempenho da rede de computadores. Com o uso do GC os recursos seriam implementados conforme a demanda, em dias e horários adequados, e até mesmo monitorados conforme a necessidade. 
+Um Assistente virtual poderá dispor aos usuários desde a  instalação de um simples pacote de bibliotecas, a um ambiente completo, com banco de dados, servidor web e aplicações para o desenvolvimento. Logicamente, uma análise de requisitos com base nas informações compiladas sobre a infraestrura existente e no interesse dos usuários, deve ser feita para estabelecer os serviços disponibilizados inicialmente e a melhor forma de utilização desses recursos.
 
-Um Assistente Virtual poderia dispor aos usuários a instalação desde um simples pacote de bibliotecas, a um ambiente completo de desenvolvimento com banco de dados, servidor web, aplicação para o desenvolvimento, tudo isso ainda utilizando conteineres.
+No ambiente acadêmico o acesso dos docentes, discentes e interessados, a dados e recursos, podem ser facilitados com a utilização dos Assistentes virtuais, ajudando-os na organização, provisão de recursos e na preparação das aulas.
 
-Pesquisadores, docentes, discentes e a propria instituição como um todo são beneficiados com informações e serviços a medida de suas necessidades, com base nas informações coletadas e no interesse dos usuários é possível definir a melhor forma de utilização desses recursos. 
-
-No ambiente acadêmico o acesso dos docentes, discentes e interessados, a dados e recursos, podem ser facilitados com a utilização dos Assistentes Virtuais. Ajudando-os na organização, provisionamento e na preparação das aulas.
-
-Assim, o presente trabalho parte da necessidade de entender os diferentes aspectos que norteiam esses 2 mundos afim de integrá-los numa solução que fornecesse o melhor de cada um. Os interessados podem se beneficiar e obter respostas a problemas ligados as suas área de interesse.
+Assim, o presente trabalho parte da necessidade de entender os diferentes aspectos que norteiam Assistentes virtuais e Gerenciamento de configuração, afim de integrá-los numa solução que fornecesse o melhor de cada um, disponibilizando aos interessados acesso a informações e respostas a problemas de interesse de suas respectivas áreas.
 
 \begin{comment}
 
@@ -184,10 +194,10 @@ De acordo com \cite{Gartner2018GartnerYears}
 
 Na prática  AV podem diminuir o tempo de espera, minimizar erros, dar agilidade e aumentar a satisfação dos usuários.
 
-O GC é parte importante da cultura DevOps que visa juntar, em colaboração contínua, as equipes de desenvolvimento (Dev) e operação (Ops). (explicar melhor)Segundo  previu que a partir de 2016 o DevOps se estabeleceria como uma disciplina dominante e seria adotado por 25\% das organizações do Mundo. A Figura 1.2 apresenta um estudo da empresa RightScale disponibilizada anualmente que tem como principal objetivo analisar como está a adoção de Cloud e DevOps no mundo. No ano passado, chegamos a números impressionantes – 81\% das grandes corporações e 70\% das pequenas e médias empresas estão adotando DevOps -, que nos mostram que nos próximos anos é possível que o DevOps esteja presente em todas as empresas que buscam acompanhar a velocidade e a competitividade do mercado atual.
+O GC é parte importante da cultura Devops que visa juntar, em colaboração contínua, as equipes de desenvolvimento (Dev) e operação (Ops). (explicar melhor)Segundo  previu que a partir de 2016 o Devops se estabeleceria como uma disciplina dominante e seria adotado por 25\% das organizações do Mundo. A Figura 1.2 apresenta um estudo da empresa RightScale disponibilizada anualmente que tem como principal objetivo analisar como está a adoção de Cloud e Devops no mundo. No ano passado, chegamos a números impressionantes – 81\% das grandes corporações e 70\% das pequenas e médias empresas estão adotando Devops -, que nos mostram que nos próximos anos é possível que o Devops esteja presente em todas as empresas que buscam acompanhar a velocidade e a competitividade do mercado atual.
 \begin{figure}[!htb]
 \centering
-\includegraphics [width=450px]{devops-adoption}
+\includegraphics [width=450px]{Devops-adoption}
 \caption{RightScale 2016 nas Grandes e Pequenas e média empresas}
 \end{figure}
 
@@ -199,15 +209,11 @@ O GC transforma a infraestruta em código (Infracture as Code - IAC), isto signi
 O presente trabalho consiste em uma pesquisa aplicada de caráter exploratório e descritivo com base em um estudo comparativo do conteúdo das obras de diferentes autores em uma revisão ( sistemática da literatura / bibliográfica ) que
 permita um maior aprofundamento sobre o tema da pesquisa. Sem a pretensão de
 estabelecer um discurso conclusivo sobre as questões pesquisadas, busca-se analisar
-os conceitos chave tratados nesta dissertação, contribuindo com novas reflexões e 
+os conceitos chave tratados neste trabalho, contribuindo com novas reflexões e 
 perspectivas de estudo.
 
 \section{Recursos necessários}
-Os recursos necessários para o desenvolvimento, análises  e aplicação deste projeto estão disponíveis na infraestrutura da Universidade Federal de São Paulo-UNIFESP, campus São José dos Campos, onde pretende-se aplicar este projeto, tais como:
-\begin{itemize}
-\item Laboratórios de informática 
-\item Servidores
-\end{itemize}
+Os recursos necessários para o desenvolvimento, análises  e aplicação deste projeto estão disponíveis na infraestrutura da Universidade Federal de São Paulo-UNIFESP, campus São José dos Campos, onde pretende-se aplicar este projeto, tais como: Laboratórios de informática, Servidores e etc...
 
 %%-------------------------------------------------
 %% Referências
